@@ -33,25 +33,24 @@ myApp.controller('myController', function($scope) {
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
 
-     $urlRouterProvider.when("", "/PageTab");
+     $urlRouterProvider.when("", "/");
      console.log('url===', $urlRouterProvider);
-     console.log('url===', $urlRouterProvider.when("/", "/PageTab"));
      $stateProvider
-        .state("PageTab", {
-            url: "/PageTab",
-            templateUrl: "PageTab.html"
+        .state("home", {
+            url: "/home",
+            templateUrl: "home.html"
         })
-        .state("PageTab.Page1", {
-            url:"/Page1",
-            templateUrl: "Page1.html"
+        .state("home.addhospital", {
+            url: "/addhospital",
+            templateUrl: "addhospital.html"
         })
-        .state("PageTab.Page2", {
-            url:"/Page2",
-            templateUrl: "Page2.html"
+         .state("home.hospitalinfo", {
+            url: "/hospitalinfo",
+            templateUrl: "hospitalinfo.html"
         })
-        .state("PageTab.Page3", {
-            url:"/Page3",
-            templateUrl: "Page3.html"
+        .state("temp02", {
+            url:"/temp02",
+            templateUrl: "temp02.html"
         });
 });
 

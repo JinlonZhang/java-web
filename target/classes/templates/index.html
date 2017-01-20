@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" href="../static/css/function.css" th:href="@{/css/function.css}"/>
+    <link rel="stylesheet" href="../static/css/layout.css" th:href="@{/css/layout.css}"/>
+    <script src="../static/js/angular.js" th:src="@{/js/angular.js}"></script>
+    <script src="../static/js/angular-ui-router.js" th:src="@{/js/angular-ui-router.js}"></script>
+    <script src="../static/js/App.js" th:src="@{/js/app.js}"></script>
+</head>
+<body ng-app="myApp">
+    <header class="m-hd f-oh">
+        <ul class="nav f-fl">
+            <li>logo</li>
+            <li><a ui-sref="home">首页</a></li>
+            <li><a ui-sref="temp02">temp 2</a></li>
+            <li><a ui-sref="temp03">temp 3</a></li>
+            <li><a ui-sref="temp04">temp 4</a></li>
+            <li><a ui-sref="temp05">temp 5</a></li>
+        </ul>
+        <div class="user f-fr">
+            用户名
+        </div>
+    </header>
+    <div class="m-bd">
+        <div ui-view=""></div>
+    </div>
+    <div ng-controller="myController">
+        <p>{{carname}}</p>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+/* 主导航 */
+.m-hd {
+    padding: 0 20px;
+    background-color: #ff6666;
+}
+.m-hd .nav>li {
+    float: left;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #fff;
+}
+.m-hd .nav>li>a {
+    color: inherit;
+}
+.m-hd .user {
+    line-height: 50px;
+    color: #fff;
+}
+
+/*侧边栏 */
+.m-sd {
+    min-height: 800px;
+    width: 200px;
+    float: left;
+    background-color: #f9f9f9;
+}
+.m-sd> h1 {
+    padding: 0 20px;
+    line-height: 32px;
+    background-color: green;
+    color: 20px;
+    color: #fff;
+}
+.m-sd .list>li {
+    padding: 0 20px;
+    line-height: 40px;
+}
+.m-sd .list>li:hover {
+    background-color: green;
+    color: #fff;
+}
+
+/* main body */
+.m-mn {
+    overflow: hidden;
+}
+
+.m-mn .mn-hd {
+    line-height: 32px;
+    background-color: #eee;
+    font-size: 16px;
+    padding: 0 20px;
+}
+.m-mn .mn-bd {
+    padding: 20px;
+}
