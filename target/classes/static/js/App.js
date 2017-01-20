@@ -46,7 +46,20 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
         })
          .state("home.hospitalinfo", {
             url: "/hospitalinfo",
-            templateUrl: "hospitalinfo.html"
+            templateUrl: "hospitalinfo.html",
+            controller: function($scope, $http) {
+                console.log("test000");
+                console.log("scope===", $scope);
+                $http.get('/find/5881be8aaf3154256ec1938f').success(function(data) {
+                    console.log("data==", data);
+                    $scope.hospital_name = data.hospital_name;
+                    $scope.name = data.name;
+                    $scope.adrees = data.adrees;
+
+                }).error(function() {
+                    console.log('err');
+                });
+            }
         })
         .state("temp02", {
             url:"/temp02",

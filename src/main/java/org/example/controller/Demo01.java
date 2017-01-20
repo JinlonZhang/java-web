@@ -40,6 +40,11 @@ public class Demo01 {
         return "home/addhospital";
     }
 
+    @RequestMapping(value = "/register")
+    public String register() {
+        return "register";
+    }
+
     @RequestMapping(value = "/hospitalinfo.html")
     public String hospitalinfo(){
 
@@ -54,7 +59,13 @@ public class Demo01 {
     }
     @RequestMapping(value ="/find/{id}")
     @ResponseBody
-    public Object find(@PathVariable String id) {
+    public Object findById(@PathVariable String id) {
         return addDao.findOne(id);
+    }
+
+    @RequestMapping(value ="/findall")
+    @ResponseBody
+    public Object findAll() {
+        return addDao.findAll();
     }
 }

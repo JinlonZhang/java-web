@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" href="../static/css/function.css" th:href="@{/css/function.css}"/>
+    <link rel="stylesheet" href="../static/css/layout.css" th:href="@{/css/layout.css}"/>
+    <script src="../static/js/angular.js" th:src="@{/js/angular.js}"></script>
+    <script src="../static/js/angular-ui-router.js" th:src="@{/js/angular-ui-router.js}"></script>
+    <script src="../static/js/App.js" th:src="@{/js/app.js}"></script>
+</head>
+<body ng-app="myApp">
+    <div class="m-register">
+        <form action="/register" method="post">
+            <div>
+                <label>用户名：</label>
+                <input name="userName" type="text" />
+            </div>
+            <div>
+                <label>密码：</label>
+                <input name="pwd" type="password" />
+            </div>
+            <div>
+                <label>邮箱：</label>
+                <input name="email" type="text" />
+            </div>
+            <div>
+                <input type="submit" value="注册"/>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
