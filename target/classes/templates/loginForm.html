@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" href="../static/css/function.css" th:href="@{/css/function.css}"/>
+    <link rel="stylesheet" href="../static/css/layout.css" th:href="@{/css/layout.css}"/>
+    <script src="../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script src="../static/js/angular.js" th:src="@{/js/angular.js}"></script>
+    <script src="../static/js/angular-ui-router.js" th:src="@{/js/angular-ui-router.js}"></script>
+    <script src="../static/js/App.js" th:src="@{/js/app.js}"></script>
+</head>
+<body ng-app="login">
+<div ng-controller="loginController" class="m-register">
+    <form>
+        <div>
+            <label>用户名：</label>
+            <input ng-model="userName" type="text" />
+        </div>
+        <div>
+            <label>密码：</label>
+            <input ng-model="pwd" type="password" />
+        </div>
+        <div>
+            <button ng-click="submit()">登录</button>
+            <a href="/register">注册</a>
+        </div>
+    </form>
+
+    <!--<form action="/user/loginForm" method="post">-->
+        <!--<div>-->
+            <!--<label>用户名：</label>-->
+            <!--<input name="userName" type="text" />-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<label>密码：</label>-->
+            <!--<input name="pwd" type="password" />-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<input type="submit" value="提交"/>-->
+            <!--<a href="/register">注册</a>-->
+        <!--</div>-->
+    <!--</form>-->
+
+    <!--jquery-->
+    <!--<form>-->
+        <!--<div>-->
+            <!--<label>用户名：</label>-->
+            <!--<input name="userName" type="text" />-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<label>密码：</label>-->
+            <!--<input name="pwd" type="password" />-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<button onclick="login()">提交</button>-->
+            <!--<a href="/register">注册</a>-->
+        <!--</div>-->
+    <!--</form>-->
+    <div>loginName {{userName}}</div>
+</div>
+<script>
+    <!--function login() {-->
+        <!--$.ajax({-->
+            <!--url: '/user/loginForm',-->
+            <!--method: 'POST',-->
+            <!--data: {'userName': '123', 'pwd': 'pwd'},-->
+            <!--success: function(data) {-->
+                <!--console.log('success');-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
+    var login = angular.module("login", []);
+    console.log('test');
+    login.controller('loginController', function($scope, $http) {
+        $scope.loginName = "Volvo";
+        $scope.submit = function() {
+            console.log("aaaa");
+            console.log($scope.userName);
+            $http({
+                method: "POST",
+                url: "/user/loginForm",
+                data: {
+                    userName: $scope.userName,
+                    pwd: $scope.pwd
+                }
+            }).success(function() {
+                console.log("success");
+            }).error(function() {
+                console.log("error 000000");
+            });
+        }
+    });
+
+</script>
+</body>
+</html>
+

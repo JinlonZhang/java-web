@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -67,5 +68,42 @@ public class Demo01 {
     @ResponseBody
     public Object findAll() {
         return addDao.findAll();
+    }
+
+    //    注册
+    @Autowired
+    private  register register;
+
+    @RequestMapping(value = "/user/register")
+    @ResponseBody
+    public Object registerModel(registerModel registerModel) {
+        register.save(registerModel);
+        return registerModel.getId();
+    }
+
+    //    登录
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/user/login")
+    @ResponseBody
+    public Object loginuser() {
+        return "ok";
+    }
+
+    // test
+    @RequestMapping(value = "/loginForm")
+    public String loginForm() {
+        return "loginForm";
+    }
+
+    @RequestMapping(value = "/user/loginForm",method = RequestMethod.POST)
+    @ResponseBody
+    public User loginPost(User user) {
+        System.out.println("userName===" + user.getUserName());
+        System.out.println("pwd===" + user.getPwd());
+        return user;
     }
 }
